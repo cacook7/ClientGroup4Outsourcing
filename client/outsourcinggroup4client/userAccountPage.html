@@ -5,16 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./resources/css/index.css">
-    <title>Tide Market Outsourcing - Your Transactions</title>
+    <link rel="stylesheet" href="./Resources/Css/index.css">
+    <title>Tide Market Outsourcing - Account Page</title>
 </head>
-<body onload = "handleFirmViewTransactions()">
-    <script type="text/Javascript", src="./resources/scripts/index.js">  </script>
+<body onload = "handleOnUserAccLoad()">
+    <script type="text/Javascript", src="./Resources/Scripts/index.js">  </script>
     <div>
         <nav id="mainnavbar" class = "navbar">
             <ul>
                 <li><a href="./index.html"><h5>Tide Market - Outsourcing</h5></a></li>
-                
             </ul>
             <ul class = "navbar-2">
                 <li><a href="./index.html"> Home</a></li>
@@ -23,20 +22,23 @@
                 <li><a href="./Register.html"> Register</a></li>
                 <!-- <li class = "push"><a class="display-right" href="./userAccountPage.html"> User Account Page</a></li> -->
                 <li><a class="display-right" href="./userAccountPage.html"><div class="_167wsvl"><button type="button" class="_8bn4ek6" aria-expanded="false" aria-label="Main navigation menu" data-testid="cypress-headernav-profile"><div class="_3hmsj"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 3; overflow: visible;"><g fill="none" fill-rule="nonzero"><path d="m2 16h28"></path><path d="m2 24h28"></path><path d="m2 8h28"></path></g></svg></div><div class="_1xp7o8n"><img class="_1wzp0xs" src="https://a0.muscache.com/defaults/user_pic-50x50.png?v=3" alt=""></div></button></div></a></li>
-                
             </ul>
         </nav>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div id="cards" class="container">
-        <div id="transactions" class="row"></div>
+    
+    <div id="logoutbutton">
         
+        <!-- <button type="submit" onclick="handleLogout()" href="./index.html">Log out</button> -->
+        <form action="./index.html">
+            <input type="submit" onclick="handleLogout()" value="Log out" class="btn btnregister btn-md btncenter"/>
+        </form>
+        <br>
+        <div id="loggedinuser">
+
+        </div>
     </div>
+
+    
 
 </body>
 </html>

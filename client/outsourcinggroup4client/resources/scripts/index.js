@@ -1,11 +1,11 @@
-// https://outsourcinggroup4api.herokuapp.com/
+// https://outsourcinggroup4client.herokuapp.com/
 
 // var loginBusinessURL = "https://localhost:11001/api/BusinessLogin/GetFirms";
-var loginBusinessURL = "https://outsourcinggroup4api.herokuapp.com/api/BusinessLogin/GetFirms";
+var loginBusinessURL = "https://outsourcinggroup4client.herokuapp.com/api/BusinessLogin/GetFirms";
 // var loginEmployeeURL = "https://localhost:11001/api/EmployeeLogin/GetEmps";
-var loginEmployeeURL = "https://outsourcinggroup4api.herokuapp.com/api/EmployeeLogin/GetEmps";
+var loginEmployeeURL = "https://outsourcinggroup4client.herokuapp.com/api/EmployeeLogin/GetEmps";
 // var registerBusinessURL = "https://localhost:11001/api/BusinessLogin";
-var registerBusinessURL = "https://outsourcinggroup4api.herokuapp.com/api/BusinessLogin";
+var registerBusinessURL = "https://outsourcinggroup4client.herokuapp.com/api/BusinessLogin";
 var loggedIn = sessionStorage.getItem('LoggedIn');
 if(loggedIn === null){
     loggedIn = "false";
@@ -296,7 +296,7 @@ function handleOnUserAccLoad(){
 
 function handleAdminOnLoad(){
     // const adminUrl = "https://localhost:11001/api/EmployeeLogin/GetEmp/";
-    const adminUrl = "https://outsourcinggroup4api.herokuapp.com/api/EmployeeLogin/GetEmp/";
+    const adminUrl = "https://outsourcinggroup4client.herokuapp.com/api/EmployeeLogin/GetEmp/";
     handleNavbar();
     fetch(adminUrl + loggedInUser.userID).then(function(response){
         return response.json();
@@ -336,7 +336,7 @@ function displayAdmin(json){
 
 function putAdmin(){
     // const updateURL = "https://localhost:11001/api/EmployeeLogin/UpdateEmployee";
-    const updateURL = "https://outsourcinggroup4api.herokuapp.com/api/EmployeeLogin/UpdateEmployee";
+    const updateURL = "https://outsourcinggroup4client.herokuapp.com/api/EmployeeLogin/UpdateEmployee";
     var value = {
         fName: document.getElementById("AdminFName").value,
         lName: document.getElementById("AdminLName").value,
@@ -360,7 +360,7 @@ function putAdmin(){
 
 function handleEmployeeOnLoad(){
     // const adminUrl = "https://localhost:11001/api/EmployeeLogin/GetEmp/";
-    const adminUrl = "https://outsourcinggroup4api.herokuapp.com/api/EmployeeLogin/GetEmp/";
+    const adminUrl = "https://outsourcinggroup4client.herokuapp.com/api/EmployeeLogin/GetEmp/";
     handleNavbar();
     fetch(adminUrl + loggedInUser.userID).then(function(response){
         return response.json();
@@ -401,7 +401,7 @@ function displayEmployee(json){
 
 function putEmployee(){
     // const updateURL = "https://localhost:11001/api/EmployeeLogin/UpdateEmployee";
-    const updateURL = "https://outsourcinggroup4api.herokuapp.com/api/EmployeeLogin/UpdateEmployee";
+    const updateURL = "https://outsourcinggroup4client.herokuapp.com/api/EmployeeLogin/UpdateEmployee";
     var value = {
         fName: document.getElementById("EmpFName").value,
         lName: document.getElementById("EmpLName").value,
@@ -424,7 +424,7 @@ function putEmployee(){
 
 function handleBusinessOnLoad(){
     // const businessURL = "https://localhost:11001/api/BusinessLogin/GetFirm/";
-    const businessURL = "https://outsourcinggroup4api.herokuapp.com/api/BusinessLogin/GetFirm/";
+    const businessURL = "https://outsourcinggroup4client.herokuapp.com/api/BusinessLogin/GetFirm/";
     handleNavbar();
     fetch(businessURL + loggedInUser.userID).then(function(response){
         return response.json();
@@ -469,7 +469,7 @@ function displayBusiness(json){
 
 function putBusiness(){
     // const updateURL = "https://localhost:11001/api/BusinessLogin/UpdateByUsername";
-    const updateURL = "https://outsourcinggroupapi.herokuapp.com/api/BusinessLogin/UpdateByUsername";
+    const updateURL = "https://outsourcinggroup4client.herokuapp.com/api/BusinessLogin/UpdateByUsername";
     var value = {
         firmName: document.getElementById("FirmName").value,
         repFName: document.getElementById("FirmRepFName").value,
@@ -500,17 +500,17 @@ function routeUser(){
     {
         //full heroku path will go after replace after we deploy-->
         // window.location.replace(`../client/businessaccountpage.html`);
-        window.location.replace(`https://outsourcinggroup4client.herokuapp.com/BusinessAccountPage.html`);
+        window.location.replace(`https://outsourcinggroup4client.herokuapp.com/businessaccountpage.html`);
     }
     else if(loggedInUser.userType == "Employee" && loggedInUser.admin == 0)
     {
         // window.location.replace(`../client/employeeaccountpage.html`);
-        window.location.replace(`https://outsourcinggroup4client.herokuapp.com/EmployeeAccountPage.html`);
+        window.location.replace(`https://outsourcinggroup4client.herokuapp.com/employeeaccountpage.html`);
     }
     else if(loggedInUser.userType == "Employee" && loggedInUser.admin == 1)
     {
         // window.location.replace(`../client/adminaccountpage.html`);
-        window.location.replace(`https://outsourcinggroup4client.herokuapp.com/AdminAccountPage.html`);
+        window.location.replace(`https://outsourcinggroup4client.herokuapp.com/adminaccountpage.html`);
     }
     // else
     // {
@@ -521,7 +521,7 @@ function routeUser(){
 
 function handleRentalOnLoad(){
     // const rentalUrl = "https://localhost:11001/api/Rental";
-    const rentalUrl = "https://outsourcinggroup4api.herokuapp.com/api/Rental";
+    const rentalUrl = "https://outsourcinggroup4client.herokuapp.com/api/Rental";
     handleNavbar();
 
     fetch(rentalUrl).then(function(response){
@@ -567,7 +567,7 @@ function postApplication(){
         appEndDate: document.getElementById("AppEndDate").value
     }
     // const appURL = "https://localhost:11001/api/RentalApplication/PostApplication";
-    const appURL = "https://outsourcinggroup4api.herokuapp.com/api/RentalApplication/PostApplication";
+    const appURL = "https://outsourcinggroup4client.herokuapp.com/api/RentalApplication/PostApplication";
     fetch(appURL, {
         method: "POST",
         headers: {
@@ -584,7 +584,7 @@ function postApplication(){
 
 function handleAdminRentalOnLoad(){
     // const rentalUrl = "https://localhost:11001/api/Rental";
-    const rentalUrl = "https://outsourcinggroup4api.herokuapp.com/api/Rental";
+    const rentalUrl = "https://outsourcinggroup4client.herokuapp.com/api/Rental";
     handleNavbar();
 
     fetch(rentalUrl).then(function(response){
@@ -616,7 +616,7 @@ setAdminRentals = function(adminrentals){
 
 function removeRental(id){
     // const deleteRentalUrl = "https://localhost:11001/api/Rental/"+id;
-    const deleteRentalUrl = "https://outsourcinggroup4api.herokuapp.com/api/Rental/"+id;
+    const deleteRentalUrl = "https://outsourcinggroup4client.herokuapp.com/api/Rental/"+id;
 
     fetch(deleteRentalUrl,{
         method: "DELETE",
@@ -634,7 +634,7 @@ function removeRental(id){
 
 function handleViewBusinessOnLoad(){
     // const businessUrl = "https://localhost:11001/api/BusinessLogin/GetFirms";
-    const businessUrl = "https://outsourcinggroup4api.herokuapp.com/api/BusinessLogin/GetFirms";
+    const businessUrl = "https://outsourcinggroup4client.herokuapp.com/api/BusinessLogin/GetFirms";
     handleNavbar();
 
     fetch(businessUrl).then(function(response){
@@ -662,7 +662,7 @@ function displayBusinessDeleteTable(json){
 
 function handleviewAdminsOnLoad(){
     // const adminsUrl = "https://localhost:11001/api/EmployeeLogin/GetEmps";
-    const adminsUrl = "https://outsourcinggroup4api.herokuapp.com/api/EmployeeLogin/GetEmps";
+    const adminsUrl = "https://outsourcinggroup4client.herokuapp.com/api/EmployeeLogin/GetEmps";
     handleNavbar();
 
     fetch(adminsUrl).then(function(response){
@@ -693,7 +693,7 @@ function displayAdminViewTable(json){
 
 function handleviewEmployeesOnLoad(){
     // const employeesUrl = "https://localhost:11001/api/EmployeeLogin/GetEmps";
-    const employeesUrl = "https://outsourcinggroup4api.herokuapp.com/api/EmployeeLogin/GetEmps";
+    const employeesUrl = "https://outsourcinggroup4client.herokuapp.com/api/EmployeeLogin/GetEmps";
     handleNavbar();
 
     fetch(employeesUrl).then(function(response){
@@ -721,7 +721,7 @@ function displayEmployeeViewTable(json){
 
 function handleFirmViewAppsOnLoad(){
     // const appURL = "https://localhost:11001/api/RentalApplication/GetAppByFirm/";
-    const appURL = "https://outsourcinggroup4api.herokuapp.com/api/RentalApplication/GetAppByFirm/";
+    const appURL = "https://outsourcinggroup4client.herokuapp.com/api/RentalApplication/GetAppByFirm/";
     handleNavbar();
     fetch(appURL + loggedInUser.userID).then(function(response){
         return response.json();
@@ -759,7 +759,7 @@ function deleteApp(firmID){
 
 function handleCurrentRentalOnLoad(){
     // const currRentalUrl = "https://localhost:11001/api/BusinessLogin/GetCurrentRenters";
-    const currRentalUrl = "https://outsourcinggroup4api.herokuapp.com/api/BusinessLogin/GetCurrentRenters";
+    const currRentalUrl = "https://outsourcinggroup4client.herokuapp.com/api/BusinessLogin/GetCurrentRenters";
     handleNavbar();
     fetch(currRentalUrl).then(function(response){
         return response.json();
@@ -787,7 +787,7 @@ function handleCurrentRentalOnLoad(){
 
 function handleFirmViewTransactions(){
     // const transURL = "https://localhost:11001/api/Rental/GetTransactionsByFirm/";
-    const transURL = "https://outsourcinggroup4api.herokuapp.com/api/Rental/GetTransactionsByFirm/";
+    const transURL = "https://outsourcinggroup4client.herokuapp.com/api/Rental/GetTransactionsByFirm/";
     handleNavbar();
     fetch(transURL + loggedInUser.userID).then(function(response){
         return response.json();
@@ -816,7 +816,7 @@ function handleFirmViewTransactions(){
 
 function updateRentalAppApproval(appID, spaceID){
     // const updateRentalAppApprovalUrl = "https://localhost:11001/api/RentalApplication/"+appID+"/"+loggedInUser.userID;
-    const updateRentalAppApprovalUrl = "https://outsourcinggroup4api.herokuapp.com/api/RentalApplication/"+appID+"/"+loggedInUser.userID;
+    const updateRentalAppApprovalUrl = "https://outsourcinggroup4client.herokuapp.com/api/RentalApplication/"+appID+"/"+loggedInUser.userID;
     fetch(updateRentalAppApprovalUrl,{
         method: "DELETE",
         headers: {
@@ -835,7 +835,7 @@ function updateRentalAppApproval(appID, spaceID){
 
 function handleRentalApplicationUpdateOnLoad(){
     // const updateRentalAppApprovalUrl = "https://localhost:11001/api/RentalApplication/";
-    const updateRentalAppApprovalUrl = "https://outsourcinggroup4api.herokuapp.com/api/RentalApplication/";
+    const updateRentalAppApprovalUrl = "https://outsourcinggroup4client.herokuapp.com/api/RentalApplication/";
     handleNavbar();
     fetch(updateRentalAppApprovalUrl).then(function(response){
         return response.json();
@@ -882,10 +882,10 @@ function handleRentalApplicationUpdateOnLoad(){
 
 function handleadminFirmViewTransactions(){
     // const admintransURL = "https://localhost:11001/api/Rental/GetTransactions";
-    const admintransURL = "https://outsourcinggroup4api.herokuapp.com/api/Rental/GetTransactions";
+    const admintransURL = "https://outsourcinggroup4client.herokuapp.com/api/Rental/GetTransactions";
     handleNavbar();
     // const employeesUrl = "https://localhost:11001/api/EmployeeLogin/GetEmps";
-    const employeesUrl = "https://outsourcinggroup4api.herokuapp.com/api/EmployeeLogin/GetEmps";
+    const employeesUrl = "https://outsourcinggroup4client.herokuapp.com/api/EmployeeLogin/GetEmps";
 
     fetch(employeesUrl).then(function(response){
         return response.json();
@@ -930,7 +930,7 @@ function postSpace(){
         monthlyPrice: document.getElementById("Price").value
     }
     // const appURL = "https://localhost:11001/api/Rental";
-    const appURL = "https://outsourcinggroup4api.herokuapp.com/api/Rental";
+    const appURL = "https://outsourcinggroup4client.herokuapp.com/api/Rental";
     fetch(appURL, {
         method: "POST",
         headers: {
