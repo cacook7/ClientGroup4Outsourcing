@@ -221,16 +221,6 @@ function loginSearch(){
 }
 
 function handleNavbar(){
-    // let html = '<ul>';
-    // html += '<li><a href="./index.html"><h5>Tide Market - Outsourcing</h5></a></li>';
-    // html += '</ul>';
-    // html += '<ul class = "navbar-2">';
-    // html += '<li><a href="./index.html"> Home</a></li>';
-    // html += '<li><a href="./ViewAllRentals.html"> View All Rentals</a></li>';
-    // html += '<li><a href="./Login.html"> Log In</a></li>';
-    // html += '<li><a href="./Register.html"> Register</a></li>';
-    // html += '<li><a class="display-right" href="./userAccountPage.html"><div class="_167wsvl"><button type="button" class="_8bn4ek6" aria-expanded="false" aria-label="Main navigation menu" data-testid="cypress-headernav-profile"><div class="_3hmsj"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 3; overflow: visible;"><g fill="none" fill-rule="nonzero"><path d="m2 16h28"></path><path d="m2 24h28"></path><path d="m2 8h28"></path></g></svg></div><div class="_1xp7o8n"><img class="_1wzp0xs" src="https://a0.muscache.com/defaults/user_pic-50x50.png?v=3" alt=""></div></button></div></a></li>';
-    // html += '</ul>';
     if(loggedIn == "false"){
         var html = '<ul>';
         html += '<li><a href="./index.html"><h5>Tide Market - Outsourcing</h5></a></li>';
@@ -311,12 +301,6 @@ function handleAdminOnLoad(){
 function displayAdmin(json){
     var admindataTable = document.getElementById("admindataTable");
     // we can use this code for the view all employees
-    // var html = "<table class='table table-hover table-bordered'><tr><th>Delete</th><th>Vendor ID </th><th>Attendee Name </th><th>Vendor Email</th><th>Admin Phone Number</th><th>Admin Description</th></tr>";
-    // var admin = json;
-    // html+=`<tr><td><button type="button" id="delete" class="btn btn-secondary btn-sm" onclick="DeleteAdmin(${admin.adminID})">Delete</button></td>`;
-    // html+=`<td>${admin.empID}</td><td>${admin.fName}</td><td>${admin.email}</td>`;
-    // //<td>${admin.adminPhoneNumber}</td><td>${admin.adminDescription}</td></tr>`
-    // html+="</table>";
     var admin = json;
     var html = `<table class="table table-hover table-bordered">`
     html += `<tr><th>Username: </th><th><input class="form-control" type="text" name="post" id="AdminUsername" value="${admin.username}" required readonly></input></th></tr>`
@@ -375,13 +359,6 @@ function handleEmployeeOnLoad(){
 //Won't work till admin controller and datahandler are complete
 function displayEmployee(json){
     var empDataTable = document.getElementById("empDataTable");
-    // we can use this code for the view all employees
-    // var html = "<table class='table table-hover table-bordered'><tr><th>Delete</th><th>Vendor ID </th><th>Attendee Name </th><th>Vendor Email</th><th>Admin Phone Number</th><th>Admin Description</th></tr>";
-    // var admin = json;
-    // html+=`<tr><td><button type="button" id="delete" class="btn btn-secondary btn-sm" onclick="DeleteAdmin(${admin.adminID})">Delete</button></td>`;
-    // html+=`<td>${admin.empID}</td><td>${admin.fName}</td><td>${admin.email}</td>`;
-    // //<td>${admin.adminPhoneNumber}</td><td>${admin.adminDescription}</td></tr>`
-    // html+="</table>";
     var emp = json;
     var html = `<table class="table table-hover table-bordered">`
     html += `<tr><th>Username: </th><th><input class="form-control" type="text" name="post" id="EmpUsername" value="${emp.username}" required readonly></input></th></tr>`
@@ -439,13 +416,6 @@ function handleBusinessOnLoad(){
 
 function displayBusiness(json){
     var firmDataTable = document.getElementById("firmDataTable");
-    // we can use this code for the view all employees
-    // var html = "<table class='table table-hover table-bordered'><tr><th>Delete</th><th>Vendor ID </th><th>Attendee Name </th><th>Vendor Email</th><th>Admin Phone Number</th><th>Admin Description</th></tr>";
-    // var admin = json;
-    // html+=`<tr><td><button type="button" id="delete" class="btn btn-secondary btn-sm" onclick="DeleteAdmin(${admin.adminID})">Delete</button></td>`;
-    // html+=`<td>${admin.empID}</td><td>${admin.fName}</td><td>${admin.email}</td>`;
-    // //<td>${admin.adminPhoneNumber}</td><td>${admin.adminDescription}</td></tr>`
-    // html+="</table>";
     var firm = json;
     var html = `<table class="table table-hover table-bordered">`;
     html += `<tr><th>Username: </th><th><input class="form-control" type="text" name="post" id="FirmUsername" value="${firm.username}" required readonly></input></th></tr>`;
@@ -592,7 +562,6 @@ function handleAdminRentalOnLoad(){
     }).then(function(json){
         console.log(json);
         setAdminRentals(json);
-        
     }).catch(function(error){
         console.log(error);
     });
@@ -628,8 +597,7 @@ function removeRental(id){
     .then((response)=>{
         console.log(response);
         handleRentalOnLoad();
-    })
-    
+    })  
 }
 
 function handleViewBusinessOnLoad(){
@@ -642,7 +610,6 @@ function handleViewBusinessOnLoad(){
     }).then(function(json){
         console.log(json);
         displayBusinessDeleteTable(json)
-        
     }).catch(function(error){
         console.log(error);
     });
@@ -651,10 +618,10 @@ function handleViewBusinessOnLoad(){
 function displayBusinessDeleteTable(json){
     var businessdataTable = document.getElementById("businessdataTable");
 
-    var html = "<table class='table table-hover table-bordered'><tr><th>Delete</th><th>Username</th><th>Password</th><th>Email</th><th>Firm Name</th><th>Rep First Name</th><th>Rep Last Name</th></tr>";
+    var html = "<table class='table table-hover table-bordered'><tr><th>Delete</th><th>Username</th><th>Email</th><th>Firm Name</th><th>Rep First Name</th><th>Rep Last Name</th></tr>";
     json.forEach(business => {
-        html+=`<tr><td><button type="button" id="delete" class="btn btn-secondary btn-sm" onclick="DeleteBusiness(${business.firmID})">Delete</button></td>`;
-        html+=`<td>${business.username}</td><td>${business.password}</td><td>${business.email}</td><td>${business.firmName}</td><td>${business.repFName}</td><td>${business.repLName}</td></tr>`;
+        html+=`<tr><td><button type="button" id="delete" class="btn btn-secondary btn-sm" onclick="deleteBusiness(${business.firmID})">Delete</button></td>`;
+        html+=`<td>${business.username}</td><td>${business.email}</td><td>${business.firmName}</td><td>${business.repFName}</td><td>${business.repLName}</td></tr>`;
     });
     html+="</table>";
     businessdataTable.innerHTML = html;
@@ -670,7 +637,6 @@ function handleviewAdminsOnLoad(){
     }).then(function(json){
         console.log(json);
         displayAdminViewTable(json)
-        
     }).catch(function(error){
         console.log(error);
     });
@@ -680,15 +646,16 @@ function handleviewAdminsOnLoad(){
 function displayAdminViewTable(json){
     var adminsdataTable = document.getElementById("adminsdataTable");
 
-    var html = "<table class='table table-hover table-bordered'><tr><th>Delete</th><th>Username</th><th>Password</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone Number</th><th>Phone Number 2</th></tr>";
+    var html = "<table class='table table-hover table-bordered'><tr><th>Delete</th><th>Username</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone Number</th><th>Phone Number 2</th></tr>";
     json.forEach(admin => {
         if(admin.isAdmin == 1){
-            html+=`<tr><td><button type="button" id="delete" class="btn btn-secondary btn-sm" onclick="DeleteBusiness(${admin.empID})">Delete</button></td>`;
-            html+=`<td>${admin.username}</td><td>${admin.password}</td><td>${admin.fName}</td><td>${admin.lName}</td><td>${admin.email}</td><td>${admin.phoneNumber1}</td><td>${admin.phoneNumber2}</td></tr>`;
+            html+=`<tr><td><button type="button" id="delete" class="btn btn-secondary btn-sm" onclick="deleteAdmin(${admin.empID})">Delete</button></td>`;
+            html+=`<td>${admin.username}</td><td>${admin.fName}</td><td>${admin.lName}</td><td>${admin.email}</td><td>${admin.phoneNumber1}</td><td>${admin.phoneNumber2}</td></tr>`;
         }
     });
     html+="</table>";
     adminsdataTable.innerHTML = html;
+
 }
 
 function handleviewEmployeesOnLoad(){
@@ -701,7 +668,6 @@ function handleviewEmployeesOnLoad(){
     }).then(function(json){
         console.log(json);
         displayEmployeeViewTable(json)
-        
     }).catch(function(error){
         console.log(error);
     });
@@ -710,10 +676,10 @@ function handleviewEmployeesOnLoad(){
 function displayEmployeeViewTable(json){
     var employeesdataTable = document.getElementById("employeesdataTable");
 
-    var html = "<table class='table table-hover table-bordered'><tr><th>Delete</th><th>Username</th><th>Password</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone Number</th><th>Phone Number 2</th></tr>";
+    var html = "<table class='table table-hover table-bordered'><tr><th>Delete</th><th>Username</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone Number</th><th>Phone Number 2</th></tr>";
     json.forEach(employee => {
-        html+=`<tr><td><button type="button" id="delete" class="btn btn-secondary btn-sm" onclick="DeleteBusiness(${employee.empID})">Delete</button></td>`;
-        html+=`<td>${employee.username}</td><td>${employee.password}</td><td>${employee.fName}</td><td>${employee.lName}</td><td>${employee.email}</td><td>${employee.phoneNumber1}</td><td>${employee.phoneNumber2}</td></tr>`;
+        html+=`<tr><td><button type="button" id="delete" class="btn btn-secondary btn-sm" onclick="deleteEmployee(${employee.empID})">Delete</button></td>`;
+        html+=`<td>${employee.username}</td><td>${employee.fName}</td><td>${employee.lName}</td><td>${employee.email}</td><td>${employee.phoneNumber1}</td><td>${employee.phoneNumber2}</td></tr>`;
     });
     html+="</table>";
     employeesdataTable.innerHTML = html;
@@ -751,10 +717,6 @@ function handleFirmViewAppsOnLoad(){
     }).catch(function(error){
         console.log(error);
     });
-}
-
-function deleteApp(firmID){
-
 }
 
 function handleCurrentRentalOnLoad(){
@@ -930,7 +892,7 @@ function postSpace(){
         monthlyPrice: document.getElementById("Price").value
     }
     // const appURL = "https://localhost:11001/api/Rental";
-    const appURL = "https://outsourcinggroup4api.herokuapp.com/api/Rental";
+    const appURL = "https://outsourcinggroup4api.herokuapp.com/api/Rental/";
     fetch(appURL, {
         method: "POST",
         headers: {
@@ -940,6 +902,62 @@ function postSpace(){
         body: JSON.stringify(value)
     }).then(function(){
         // window.location.replace("../client/AdminViewRentals.html")
-        window.location.replace(`https://outsourcinggroup4client.herokuapp.com/AdminViewRentals.html`)
+        window.location.replace(`https://outsourcinggroup4client.herokuapp.com/AdminViewRentals.html`);
     });
+}
+
+// trying to fix delete
+function deleteBusiness(id){
+    // const DeleteBusinessUrl = "https://localhost:11001/api/BusinessLogin/GetFirms/"+id;
+    const DeleteBusinessUrl = "https://outsourcinggroup4api.herokuapp.com/api/BusinessLogin/GetFirm/"+id;
+
+    fetch(DeleteBusinessUrl,{
+        method: "DELETE",
+        headers: {
+            "Accept": 'application/json',
+            "Content-Type": 'application/json',
+        },
+    })
+    .then((response)=>{
+        console.log(response);
+        handleViewBusinessOnLoad();
+    })  
+}
+
+// trying to fix delete
+function deleteEmployee(id){
+     // const DeleteEmployeeUrl = "https://localhost:11001/api/EmployeeLogin/GetEmps/"+id;
+     const DeleteEmployeeUrl = "https://outsourcinggroup4api.herokuapp.com/api/EmployeeLogin/GetEmp/"+id;
+     
+
+     fetch(DeleteEmployeeUrl,{
+         method: "DELETE",
+         headers: {
+             "Accept": 'application/json',
+             "Content-Type": 'application/json',
+         },
+     })
+     .then((response)=>{
+         console.log(response);
+         handleviewEmployeesOnLoad();
+         
+     }) 
+}
+
+function deleteAdmin(id){
+    // const DeleteAdminUrl = "https://localhost:11001/api/EmployeeLogin/GetEmps/"+id;
+    const DeleteAdminUrl = "https://outsourcinggroup4api.herokuapp.com/api/EmployeeLogin/GetEmp/"+id;
+    
+
+    fetch(DeleteAdminUrl,{
+        method: "DELETE",
+        headers: {
+            "Accept": 'application/json',
+            "Content-Type": 'application/json',
+        },
+    })
+    .then((response)=>{
+        console.log(response);
+        handleviewAdminsOnLoad(); 
+    }) 
 }
